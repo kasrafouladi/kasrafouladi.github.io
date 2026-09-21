@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kasra Fouladi</title>
+<meta name="description" content="Kasra Fouladi — B.Sc. Computer Science at IUST. Research on imitation learning, POMDPs, representation learning, and continual learning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23fdfdfc'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23191919' text-anchor='middle'>K</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ TOPBAR ============ -->
+  <div class="topbar">
+    <nav class="nav" aria-label="Main">
+      <a href="#about">
+        <span data-lang-content="en">About</span>
+        <span data-lang-content="fa">درباره</span>
+      </a>
+      <a href="#news">
+        <span data-lang-content="en">News</span>
+        <span data-lang-content="fa">اخبار</span>
+      </a>
+      <a href="#publications">
+        <span data-lang-content="en">Publications</span>
+        <span data-lang-content="fa">مقالات</span>
+      </a>
+      <a href="#teaching">
+        <span data-lang-content="en">Teaching</span>
+        <span data-lang-content="fa">تدریس</span>
+      </a>
+      <a href="competition.html">
+        <span data-lang-content="en">Competition →</span>
+        <span data-lang-content="fa">مسابقه ←</span>
+      </a>
+    </nav>
+    <div class="right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btn-en" aria-pressed="true">EN</button>
+        <span class="sep">·</span>
+        <button id="btn-fa" aria-pressed="false">فا</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <header class="intro" data-lang-content="en" dir="ltr" lang="en">
+    <h1>Kasra Fouladi</h1>
+    <p class="subtitle">
+      B.Sc. Computer Science · <a href="https://www.iust.ac.ir/" target="_blank" rel="noopener">Iran University of Science and Technology</a>
+    </p>
+    <p class="contact">
+      <a href="mailto:k4sr405@gmail.com">k4sr405@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="mailto:kasra_fouladi@mathdep.iust.ac.ir">kasra_fouladi@mathdep.iust.ac.ir</a>
+      <span class="sep">·</span>
+      Tehran, Iran
+    </p>
+    <p class="quick-links">
+      <a href="https://scholar.google.com/citations?user=sFi6mw8AAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </header>
+
+  <header class="intro" data-lang-content="fa" dir="rtl" lang="fa">
+    <h1>کسری فولادی</h1>
+    <p class="subtitle">
+      کارشناسی علوم کامپیوتر · <a href="https://www.iust.ac.ir/" target="_blank" rel="noopener">دانشگاه علم و صنعت ایران</a>
+    </p>
+    <p class="contact">
+      <a href="mailto:k4sr405@gmail.com">k4sr405@gmail.com</a>
+      <span class="sep">·</span>
+      <a href="mailto:kasra_fouladi@mathdep.iust.ac.ir">kasra_fouladi@mathdep.iust.ac.ir</a>
+      <span class="sep">·</span>
+      تهران، ایران
+    </p>
+    <p class="quick-links">
+      <a href="https://scholar.google.com/citations?user=sFi6mw8AAAAJ&hl=en" target="_blank" rel="noopener">گوگل اسکالر</a>
+      <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">گیت‌هاب</a>
+      <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener">لینکدین</a>
+    </p>
+  </header>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="s" id="about">
+    <h2 data-lang-content="en">About</h2>
+    <h2 data-lang-content="fa">درباره</h2>
+
+    <div data-lang-content="en" dir="ltr" lang="en">
+      <p class="body">I am a B.Sc. Computer Science student at <strong>Iran University of Science and Technology (IUST)</strong>, currently conducting research as an intern at the <strong>Institute for Research in Fundamental Sciences (IPM)</strong> in Tehran. My work sits at the intersection of imitation learning, representation learning, and continual learning — with a particular focus on partially observable environments where the agent must make decisions from limited information.</p>
+      <p class="body">My research follows three threads. The first is <strong>removing computational bottlenecks from training pipelines</strong> — most recently by eliminating back-propagation through time from the perception backbone via a Future-Action Predictor, while keeping a bounded-window Transformer aggregator on top. The second is <strong>post-hoc behavioral repair</strong> — correcting a specific, identified failure in a trained policy without retraining from scratch, and explicitly accounting for the case where the anchor set used for preservation is itself contaminated with the failure. The third is <strong>interpretability-aware optimization</strong> — jointly optimizing accuracy and explainability through a bi-objective training framework.</p>
+      <p class="body">Alongside the theory, I build the environments the theory runs on. <strong>StrikeForce</strong>, a partially observable 2D battle-arena testbed, is the environment behind my recent learning-related papers, and is now opening to a broader research community through a public competition.</p>
+      <p class="interests" style="margin-top:1.2rem">
+        <span class="label">Research interests:</span> Imitation Learning · Reinforcement Learning · POMDPs · Representation Learning · Continual Learning · Model Repair · Interpretable Machine Learning · Efficient Training · Multi-Agent Systems
+      </p>
+    </div>
+
+    <div data-lang-content="fa" dir="rtl" lang="fa">
+      <p class="body">من دانشجوی کارشناسی علوم کامپیوتر در <strong>دانشگاه علم و صنعت ایران</strong> هستم و در حال حاضر به‌عنوان کارآموز پژوهشی در <strong>پژوهشگاه دانش‌های بنیادی (IPM)</strong> تهران مشغول به فعالیت هستم. کار من در تلاقی یادگیری تقلیدی، یادگیری بازنمایی، و یادگیری پیوسته قرار دارد — با تمرکز ویژه بر محیط‌های با مشاهده‌ی جزئی، جایی که agent باید از اطلاعات محدود تصمیم بگیرد.</p>
+      <p class="body">پژوهش من سه رشته دارد. رشته‌ی اول <strong>حذف گلوگاه‌های محاسباتی از خط لوله‌ی آموزش</strong> است — به‌تازگی با حذف Back-Propagation Through Time از بک‌بون ادراکی از طریق یک Future-Action Predictor، در حالی که یک Transformer aggregator با پنجره‌ی محدود روی آن نگه داشته شده. رشته‌ی دوم <strong>ترمیم رفتاری post-hoc</strong> است — تصحیح یک خطای مشخص و شناسایی‌شده در یک policy آموزش‌دیده، بدون آموزش از صفر، و با در نظر گرفتن صریح حالتی که مجموعه‌ی anchor مورد استفاده برای preservation خودش آلوده به همان خطاست. رشته‌ی سوم <strong>بهینه‌سازی آگاه از تفسیرپذیری</strong> است — بهینه‌سازی همزمان دقت و قابلیت توضیح از طریق یک چارچوب آموزش دو-هدفی.</p>
+      <p class="body">در کنار تئوری، محیط‌هایی که تئوری روی آن‌ها اجرا می‌شود را هم می‌سازم. <strong>StrikeForce</strong>، یک بستر نبرد دوبعدی با مشاهده‌ی جزئی، محیطی است که پشت مقالات اخیر من در حوزه‌ی یادگیری قرار دارد، و اکنون از طریق یک مسابقه‌ی عمومی به روی جامعه‌ی گسترده‌تر پژوهش چندعامله باز می‌شود.</p>
+      <p class="interests" style="margin-top:1.2rem">
+        <span class="label">علایق پژوهشی:</span> یادگیری تقلیدی · یادگیری تقویتی · POMDP · یادگیری بازنمایی · یادگیری پیوسته · ترمیم مدل · یادگیری ماشین تفسیرپذیر · آموزش کارآمد · سیستم‌های چندعامله
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ NEWS ============ -->
+  <section class="s" id="news">
+    <h2 data-lang-content="en">News</h2>
+    <h2 data-lang-content="fa">اخبار</h2>
+
+    <div class="news" data-lang-content="en" dir="ltr" lang="en">
+      <div class="news-item"><div class="news-date">Sep 2026</div><div class="news-text">Preprint released: <strong>Targeted Behavioral Repair with Contaminated Anchors</strong>.</div></div>
+      <div class="news-item"><div class="news-date">Jul 2026</div><div class="news-text">Two preprints released: <strong>StrikeForce</strong> testbed paper and <strong>No Back-Propagation Through Time via Future Action Prediction</strong>.</div></div>
+      <div class="news-item"><div class="news-date">Jun 2026</div><div class="news-text">Started research internship at <strong>IPM</strong>, Tehran.</div></div>
+      <div class="news-item"><div class="news-date">Jan 2026</div><div class="news-text">Preprint released: <strong>Interpretability-Guided Bi-objective Optimization</strong> (with H. Rahmani).</div></div>
+      <div class="news-item"><div class="news-date">Sep 2023</div><div class="news-text">Started B.Sc. in Computer Science at <strong>IUST</strong>.</div></div>
+    </div>
+
+    <div class="news" data-lang-content="fa" dir="rtl" lang="fa">
+      <div class="news-item"><div class="news-date">سپتامبر ۲۰۲۶</div><div class="news-text">پیش‌چاپ منتشر شد: <strong>Targeted Behavioral Repair with Contaminated Anchors</strong>.</div></div>
+      <div class="news-item"><div class="news-date">جولای ۲۰۲۶</div><div class="news-text">دو پیش‌چاپ منتشر شد: مقاله‌ی <strong>StrikeForce</strong> و <strong>No Back-Propagation Through Time via Future Action Prediction</strong>.</div></div>
+      <div class="news-item"><div class="news-date">ژوئن ۲۰۲۶</div><div class="news-text">شروع کارآموزی پژوهشی در <strong>IPM</strong>، تهران.</div></div>
+      <div class="news-item"><div class="news-date">ژانویه ۲۰۲۶</div><div class="news-text">پیش‌چاپ منتشر شد: <strong>Interpretability-Guided Bi-objective Optimization</strong> (به‌همراه H. Rahmani).</div></div>
+      <div class="news-item"><div class="news-date">سپتامبر ۲۰۲۳</div><div class="news-text">شروع دوره‌ی کارشناسی علوم کامپیوتر در <strong>IUST</strong>.</div></div>
+    </div>
+  </section>
+
+  <!-- ============ PUBLICATIONS ============ -->
+  <section class="s" id="publications">
+    <h2 data-lang-content="en">Publications &amp; Preprints</h2>
+    <h2 data-lang-content="fa">مقالات و پیش‌چاپ‌ها</h2>
+
+    <div class="pubs" data-lang-content="en" dir="ltr" lang="en">
+
+      <article class="pub">
+        <div class="pub-title">Interpretability-Guided Bi-objective Optimization: Aligning Accuracy and Explainability</div>
+        <div class="pub-authors"><em>K. Fouladi</em> (corresponding), H. Rahmani.</div>
+        <div class="pub-venue">Preprint, January 2026.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2601.00655" target="_blank" rel="noopener">arXiv:2601.00655</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">Abstract.</span> Proposed a bi-objective training framework that jointly optimizes predictive accuracy and model explainability, using interpretability signals to guide the optimization toward solutions that are both accurate and human-understandable.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
+        <div class="pub-venue">Preprint, July 2026.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.24446.96326" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">Abstract.</span> StrikeForce is an open-source, partially observable 2D battle-arena environment and client software implemented in C++17. It couples a playable, account-backed game client (terminal and SFML-rendered graphical front ends) with a machine-readable agent-plugin interface, a fixed-size local observation encoding, a deterministic seeded random-number generator, frame-level replay logging, a client–server networking protocol with server-side match arbitration, and a lightweight HTTP-based checkpoint-transfer service backed by an SQLite state store for versioned, parent–child-tracked agent checkpoints. The environment supports five game modes (Solo, Timer, Squad, networked Battle Royal, and networked AI Battle Royal), an item/economy subsystem with 16 purchasable items across four categories, and a pluggable agent-injection seam that allows a researcher to substitute an arbitrary policy for the shipped example plugin without modifying the core simulation loop. The full client, with rendering and all subsystems enabled, consumes at most 11% of a single CPU core on a reference laptop and peaks at 110 MB of resident memory.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">No Back-Propagation Through Time via Future Action Prediction</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
+        <div class="pub-venue">Preprint, July 2026.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.18971.43049" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">Abstract.</span> We introduce a decoupled architecture for imitation learning in partially observable games that removes Back-Propagation Through Time (BPTT) from the perception backbone entirely. A Future-Action Predictor (FAP) backbone compresses each observation into a latent vector trained solely to forecast the expert's future actions over a bounded horizon <em>H</em>. A separate Transformer aggregator then combines a sliding window of these detached representations, together with local raw observations and the agent's own action history, to produce the policy output. Because gradients from the policy objective are stopped before the backbone, the two components specialise independently, giving memory complexity <em>O(H²)</em> with respect to episode length <em>T</em>. We provide a theoretical analysis showing that, under a pseudo-Markovian assumption, the FAP objective avoids the temporal Jacobian products responsible for BPTT's vanishing/exploding-gradient mechanism, and that a no-regret aggregation mechanism exists for the overlapping predictions.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">Targeted Behavioral Repair with Contaminated Anchors</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
+        <div class="pub-venue">Preprint, September 2026.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.11421.68328" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">Abstract.</span> We study the problem of correcting a specific, identified behavioral failure in a trained model without retraining from scratch and without full access to the original training distribution. Given a competent base model θ₀ and a small corrective dataset D<sub>fix</sub> exhibiting the failure, the standard remedy for avoiding collateral damage elsewhere is to regularize the update toward θ₀ using an anchor set D<sub>anc</sub> sampled from the original distribution. We highlight and formalize a complication that this standard recipe does not address: the anchor set is not guaranteed to be failure-free. When the failure region has nonzero mass under the original distribution, D<sub>anc</sub> may itself contain instances of the very behavior being corrected, so a preservation term applied indiscriminately can directly oppose the corrective signal. We combine parameter-space preservation (EWC) with output-space preservation (KD) into a single objective, characterize the repair–preservation trade-off this creates as a function of failure prevalence ρ and dataset sizes, and analyze the resulting multi-step dynamics locally.</div>
+      </article>
+
+    </div>
+
+    <div class="pubs" data-lang-content="fa" dir="rtl" lang="fa">
+
+      <article class="pub">
+        <div class="pub-title">Interpretability-Guided Bi-objective Optimization: Aligning Accuracy and Explainability</div>
+        <div class="pub-authors"><em>K. Fouladi</em> (نویسنده‌ی مسئول)، H. Rahmani.</div>
+        <div class="pub-venue">پیش‌چاپ، ژانویه ۲۰۲۶.</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2601.00655" target="_blank" rel="noopener">arXiv:2601.00655</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">چکیده.</span> یک چارچوب آموزش دو-هدفی پیشنهاد شده که به‌طور همزمان دقت پیش‌بینی و قابلیت توضیح مدل را بهینه می‌کند، با استفاده از سیگنال‌های تفسیرپذیری برای هدایت بهینه‌سازی به سمت جواب‌هایی که هم دقیق باشند و هم برای انسان قابل‌فهم.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
+        <div class="pub-venue">پیش‌چاپ، جولای ۲۰۲۶.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.24446.96326" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">چکیده.</span> StrikeForce یک محیط نبرد دوبعدی متن‌باز با مشاهده‌ی جزئی و نرم‌افزار کلاینت آن است که با C++17 پیاده‌سازی شده. این محیط یک کلاینت بازی قابل‌بازیِ متصل به حساب کاربری (با فرانت‌اندهای ترمینال و گرافیکی مبتنی بر SFML) را با یک رابط قابل‌خواندن برای ماشین برای پلاگین agent، یک انکودینگ مشاهده‌ی محلی با اندازه‌ی ثابت، یک مولد اعداد تصادفی با seed مشخص، لاگ‌گیری replay در سطح فریم، یک پروتکل شبکه‌ی client-server با داوری Match در سمت سرور، و یک سرویس سبک انتقال checkpoint مبتنی بر HTTP با پشتیبان SQLite برای checkpointهای نسخه‌دار با شجره‌نامه‌ی parent-child جفت می‌کند. این محیط از پنج حالت بازی پشتیبانی می‌کند، یک زیرسیستم آیتم/اقتصاد با ۱۶ آیتم قابل خرید در چهار دسته دارد، و یک درز پلاگین‌پذیر برای تزریق agent فراهم می‌کند که به پژوهشگر اجازه می‌دهد یک policy دلخواه را بدون تغییر دادن حلقه‌ی شبیه‌سازی اصلی جایگزین پلاگین نمونه‌ی ارائه‌شده کند.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">No Back-Propagation Through Time via Future Action Prediction</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
+        <div class="pub-venue">پیش‌چاپ، جولای ۲۰۲۶.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.18971.43049" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">چکیده.</span> ما یک معماری جداشده برای یادگیری تقلیدی در بازی‌های با مشاهده‌ی جزئی معرفی می‌کنیم که Back-Propagation Through Time (BPTT) را به‌طور کامل از بک‌بون ادراکی حذف می‌کند. یک بک‌بون Future-Action Predictor (FAP) هر مشاهده را به یک بردار نهفته فشرده می‌کند که تنها برای پیش‌بینی اکشن‌های آینده‌ی خبره در یک افق کراندار <em>H</em> آموزش دیده است. سپس یک Transformer aggregator جداگانه، یک پنجره‌ی لغزان از این بازنمایی‌های جدا‌شده را، همراه با مشاهدات خام محلی و تاریخچه‌ی اکشن خود agent، ترکیب می‌کند تا خروجی policy را تولید کند. ما یک تحلیل نظری ارائه می‌دهیم که نشان می‌دهد، تحت یک فرض شبه-مارکوفی، هدف FAP از ضرب‌های ژاکوبی زمانی که مسئول مکانیزم گرادیان ناپدیدشونده/منفجرشونده‌ی BPTT هستند اجتناب می‌کند.</div>
+      </article>
+
+      <article class="pub">
+        <div class="pub-title">Targeted Behavioral Repair with Contaminated Anchors</div>
+        <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
+        <div class="pub-venue">پیش‌چاپ، سپتامبر ۲۰۲۶.</div>
+        <div class="pub-links">
+          <a href="https://doi.org/10.13140/RG.2.2.11421.68328" target="_blank" rel="noopener">DOI</a>
+          <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="pub-abstract"><span class="lead">چکیده.</span> ما مسئله‌ی تصحیح یک خطای رفتاری مشخص و شناسایی‌شده در یک مدل آموزش‌دیده را بدون آموزش از صفر و بدون دسترسی کامل به توزیع اصلی آموزش مطالعه می‌کنیم. با داشتن یک مدل پایه‌ی توانمند θ₀ و یک دیتاست تصحیح کوچک D<sub>fix</sub> که خطا را نشان می‌دهد، درمان استاندارد برای جلوگیری از آسیب جانبی در جاهای دیگر، منظّم‌سازی به‌روزرسانی به سمت θ₀ با استفاده از یک مجموعه‌ی anchor نمونه‌گیری‌شده از توزیع اصلی است. ما یک پیچیدگی را که این دستور استاندارد به آن رسیدگی نمی‌کند برجسته و صورت‌بندی می‌کنیم: مجموعه‌ی anchor تضمین‌شده عاری از خطا نیست.</div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ EDUCATION ============ -->
+  <section class="s" id="education">
+    <h2 data-lang-content="en">Education</h2>
+    <h2 data-lang-content="fa">تحصیلات</h2>
+
+    <div class="entry" data-lang-content="en" dir="ltr" lang="en">
+      <div class="entry-head">
+        <span class="entry-title">B.Sc. in Computer Science</span>
+        <span class="entry-date">2023 — 2027 (expected)</span>
+      </div>
+      <div class="entry-sub">Iran University of Science and Technology, Tehran, Iran</div>
+      <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
+        <strong>GPA:</strong> 93 / 100. <br>
+        <strong>Relevant coursework (grades ≥ 95):</strong>
+        Mathematical Analysis <span class="courses grade">(100)</span>,
+        Data Structures <span class="courses grade">(100)</span>,
+        Design and Analysis of Algorithms <span class="courses grade">(100)</span>,
+        Linear Optimization <span class="courses grade">(97.5)</span>,
+        Probability <span class="courses grade">(96.5)</span>,
+        Combinatorics <span class="courses grade">(95)</span>,
+        Computer Simulation <span class="courses grade">(95)</span>.
+      </p>
+    </div>
+
+    <div class="entry" data-lang-content="fa" dir="rtl" lang="fa">
+      <div class="entry-head">
+        <span class="entry-title">کارشناسی علوم کامپیوتر</span>
+        <span class="entry-date">۲۰۲۳ — ۲۰۲۷ (مورد انتظار)</span>
+      </div>
+      <div class="entry-sub">دانشگاه علم و صنعت ایران، تهران، ایران</div>
+      <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
+        <strong>معدل:</strong> ۹۳ از ۱۰۰. <br>
+        <strong>دروس مرتبط (نمرات ۹۵+):</strong>
+        آنالیز ریاضی <span class="courses grade">(۱۰۰)</span>،
+        ساختمان داده <span class="courses grade">(۱۰۰)</span>،
+        طراحی و تحلیل الگوریتم‌ها <span class="courses grade">(۱۰۰)</span>،
+        بهینه‌سازی خطی <span class="courses grade">(۹۷.۵)</span>،
+        احتمال <span class="courses grade">(۹۶.۵)</span>،
+        ترکیبیات <span class="courses grade">(۹۵)</span>،
+        شبیه‌سازی کامپیوتری <span class="courses grade">(۹۵)</span>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ RESEARCH EXPERIENCE ============ -->
+  <section class="s" id="experience">
+    <h2 data-lang-content="en">Research Experience</h2>
+    <h2 data-lang-content="fa">تجربه‌ی پژوهشی</h2>
+
+    <div class="entry" data-lang-content="en" dir="ltr" lang="en">
+      <div class="entry-head">
+        <span class="entry-title">Research Intern</span>
+        <span class="entry-date">Jun 2026 — Sep 2026</span>
+      </div>
+      <div class="entry-sub">Institute for Research in Fundamental Sciences (IPM), Tehran, Iran</div>
+      <ul>
+        <li>Investigating decoupled representation learning and theoretical credit assignment in partially observable environments (POMDPs).</li>
+        <li>Investigating continual learning and behavioral repair in partially observable environments, with a focus on catastrophic forgetting and targeted post-hoc correction.</li>
+      </ul>
+    </div>
+
+    <div class="entry" data-lang-content="fa" dir="rtl" lang="fa">
+      <div class="entry-head">
+        <span class="entry-title">کارآموز پژوهشی</span>
+        <span class="entry-date">ژوئن ۲۰۲۶ — سپتامبر ۲۰۲۶</span>
+      </div>
+      <div class="entry-sub">پژوهشگاه دانش‌های بنیادی (IPM)، تهران، ایران</div>
+      <ul>
+        <li>بررسی یادگیری بازنمایی جداشده و تخصیص اعتبار نظری در محیط‌های با مشاهده‌ی جزئی (POMDP).</li>
+        <li>بررسی یادگیری پیوسته و ترمیم رفتاری در محیط‌های با مشاهده‌ی جزئی، با تمرکز بر فراموشی فاجعه‌بار و تصحیح هدفمند post-hoc.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ TEACHING ============ -->
+  <section class="s" id="teaching">
+    <h2 data-lang-content="en">Teaching</h2>
+    <h2 data-lang-content="fa">تجربه‌ی تدریس</h2>
+
+    <div class="entry" data-lang-content="en" dir="ltr" lang="en">
+      <div class="entry-sub" style="margin-bottom:0.6rem">Teaching Assistant, Iran University of Science and Technology</div>
+      <div class="entry-head"><span class="entry-title">Theory of Computation</span><span class="entry-date">Spring 2026</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">General Mathematics 1 · Fundamentals of Computation Theory · Quantum Computing</span><span class="entry-date">Fall 2025</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">Combinatorics</span><span class="entry-date">Spring 2025</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">Basic Programming</span><span class="entry-date">Fall 2024</span></div>
+    </div>
+
+    <div class="entry" data-lang-content="fa" dir="rtl" lang="fa">
+      <div class="entry-sub" style="margin-bottom:0.6rem">دستیار آموزشی، دانشگاه علم و صنعت ایران</div>
+      <div class="entry-head"><span class="entry-title">نظریه‌ی زبان‌ها و ماشین‌ها</span><span class="entry-date">بهار ۲۰۲۶</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">ریاضی عمومی ۱ · مبانی نظریه‌ی محاسبه · محاسبات کوانتومی</span><span class="entry-date">پاییز ۲۰۲۵</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">ترکیبیات</span><span class="entry-date">بهار ۲۰۲۵</span></div>
+      <div class="entry-head" style="margin-top:0.7rem"><span class="entry-title">برنامه‌نویسی مقدماتی</span><span class="entry-date">پاییز ۲۰۲۴</span></div>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="s" id="skills">
+    <h2 data-lang-content="en">Skills &amp; Languages</h2>
+    <h2 data-lang-content="fa">مهارت‌ها و زبان‌ها</h2>
+
+    <dl class="dl" data-lang-content="en" dir="ltr" lang="en">
+      <dt>Languages</dt>
+      <dd>Python, C / C++, LaTeX, SQL</dd>
+      <dt>ML Frameworks</dt>
+      <dd>PyTorch, TensorFlow, scikit-learn, LibTorch</dd>
+      <dt>Other</dt>
+      <dd>SFML, Django, Flask</dd>
+      <dt>Tools</dt>
+      <dd>Git, Linux, Docker, CMake, Overleaf, Shell scripting</dd>
+      <dt>Persian</dt>
+      <dd>Native</dd>
+      <dt>English</dt>
+      <dd>Fluent — IELTS Academic, Overall Band 7.0</dd>
+    </dl>
+
+    <dl class="dl" data-lang-content="fa" dir="rtl" lang="fa">
+      <dt>زبان‌های برنامه‌نویسی</dt>
+      <dd>Python، C / C++، LaTeX، SQL</dd>
+      <dt>فریم‌ورک‌های یادگیری ماشین</dt>
+      <dd>PyTorch، TensorFlow، scikit-learn، LibTorch</dd>
+      <dt>سایر</dt>
+      <dd>SFML، Django، Flask</dd>
+      <dt>ابزارها</dt>
+      <dd>Git، Linux، Docker، CMake، Overleaf، Shell scripting</dd>
+      <dt>فارسی</dt>
+      <dd>زبان مادری</dd>
+      <dt>انگلیسی</dt>
+      <dd>مسلط — آیلتس آکادمیک، نمره‌ی کل ۷.۰</dd>
+    </dl>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="s" id="contact">
+    <h2 data-lang-content="en">Contact</h2>
+    <h2 data-lang-content="fa">تماس</h2>
+
+    <div class="contact-list" data-lang-content="en" dir="ltr" lang="en">
+      <a href="mailto:kasra_fouladi@mathdep.iust.ac.ir"><span class="k">academic</span><span class="v">kasra_fouladi@mathdep.iust.ac.ir</span></a>
+      <a href="mailto:k4sr405@gmail.com"><span class="k">personal</span><span class="v">k4sr405@gmail.com</span></a>
+      <a href="tel:+989121021928"><span class="k">phone</span><span class="v">+98 912 102 1928</span></a>
+      <a href="https://scholar.google.com/citations?user=sFi6mw8AAAAJ&hl=en" target="_blank" rel="noopener"><span class="k">scholar</span><span class="v">Kasra Fouladi</span></a>
+      <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener"><span class="k">github</span><span class="v">kasrafouladi</span></a>
+      <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener"><span class="k">linkedin</span><span class="v">kasra-fouladi</span></a>
+    </div>
+
+    <div class="contact-list" data-lang-content="fa" dir="rtl" lang="fa">
+      <a href="mailto:kasra_fouladi@mathdep.iust.ac.ir"><span class="k">دانشگاهی</span><span class="v">kasra_fouladi@mathdep.iust.ac.ir</span></a>
+      <a href="mailto:k4sr405@gmail.com"><span class="k">شخصی</span><span class="v">k4sr405@gmail.com</span></a>
+      <a href="tel:+989121021928"><span class="k">تلفن</span><span class="v">+98 912 102 1928</span></a>
+      <a href="https://scholar.google.com/citations?user=sFi6mw8AAAAJ&hl=en" target="_blank" rel="noopener"><span class="k">اسکالر</span><span class="v">Kasra Fouladi</span></a>
+      <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener"><span class="k">گیت‌هاب</span><span class="v">kasrafouladi</span></a>
+      <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener"><span class="k">لینکدین</span><span class="v">kasra-fouladi</span></a>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="competition.html">
+        <span data-lang-content="en">Competition</span>
+        <span data-lang-content="fa">مسابقه</span>
+      </a>
+      <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:k4sr405@gmail.com">Email</a>
+    </div>
+    <div>© 2026 Kasra Fouladi</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btnEn = document.getElementById('btn-en');
+  var btnFa = document.getElementById('btn-fa');
+
+  function setLang(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+    btnEn.setAttribute('aria-pressed', String(lang === 'en'));
+    btnFa.setAttribute('aria-pressed', String(lang === 'fa'));
+    try { localStorage.setItem('sf-lang', lang); } catch (e) {}
+  }
+
+  try {
+    var saved = localStorage.getItem('sf-lang');
+    if (saved === 'fa' || saved === 'en') setLang(saved);
+  } catch (e) {}
+
+  btnEn.addEventListener('click', function () { setLang('en'); });
+  btnFa.addEventListener('click', function () { setLang('fa'); });
+})();
+</script>
+</body>
+</html>
