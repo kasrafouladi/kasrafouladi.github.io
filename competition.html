@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StrikeForce Competition — Kasra Fouladi</title>
+<meta name="description" content="A research-grade multi-agent AI competition built on StrikeForce.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23fdfdfc'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='600' fill='%23191919' text-anchor='middle'>S</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ---- Competition-specific styling ---- */
+
+  .comp-intro { margin-bottom: 2.4rem; }
+  .comp-intro h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(1.7rem, 4.5vw, 2.2rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.6rem;
+  }
+  .comp-intro .lead {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    max-width: 62ch;
+    margin-bottom: 1.4rem;
+  }
+  .comp-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 2rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    font-family: var(--mono);
+    color: var(--ink-mute);
+  }
+  .comp-meta .k {
+    font-family: var(--sans);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    margin-right: 0.4rem;
+  }
+  .comp-meta .v { color: var(--ink); }
+
+  /* ---- Tabs ---- */
+  .tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.6rem;
+    padding-bottom: 0.8rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 0.88rem;
+  }
+  .tabs button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.35rem 0;
+    font: inherit;
+    color: var(--ink-mute);
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    letter-spacing: 0.01em;
+  }
+  .tabs button:hover { color: var(--ink); }
+  .tabs button[aria-selected="true"] {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+    font-weight: 600;
+  }
+  .tabpanel { display: none; }
+  .tabpanel.active { display: block; }
+
+  /* ---- Feature grid ---- */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.4rem 2rem;
+    margin-top: 1.2rem;
+  }
+  .feature {
+    padding: 0.3rem 0;
+  }
+  .feature h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--ink);
+  }
+  .feature p {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  /* ---- Spec list ---- */
+  .specs {
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 0.45rem 1.4rem;
+    font-size: 0.92rem;
+    margin-top: 0.4rem;
+  }
+  .specs dt {
+    font-family: var(--sans);
+    font-size: 0.76rem;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding-top: 0.2rem;
+  }
+  .specs dd { color: var(--ink-soft); font-family: var(--mono); font-size: 0.86rem; }
+  .specs dd em { font-style: normal; color: var(--ink); font-weight: 500; }
+
+  /* ---- Flow ---- */
+  .flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.35rem 0.6rem;
+    margin-top: 1rem;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+  }
+  .flow .step {
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    color: var(--ink-soft);
+    background: var(--bg);
+  }
+  .flow .arrow { color: var(--ink-mute); }
+
+  /* ---- Numbered rules ---- */
+  .rules { counter-reset: rule; margin-top: 0.8rem; }
+  .rules .r {
+    position: relative;
+    padding-left: 2rem;
+    padding-bottom: 1rem;
+    counter-increment: rule;
+    border-bottom: 1px dotted var(--rule);
+  }
+  .rules .r:last-child { border-bottom: none; padding-bottom: 0; }
+  .rules .r::before {
+    content: counter(rule) ".";
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--ink-mute);
+    font-weight: 500;
+  }
+  .rules .r p {
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  /* ---- Code block ---- */
+  .code-block {
+    margin-top: 1.2rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    background: var(--code-bg);
+    overflow: hidden;
+  }
+  .code-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--rule);
+    background: rgba(0,0,0,0.015);
+  }
+  .code-head span {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--ink-mute);
+  }
+  pre.code {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    overflow-x: auto;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+  pre.code .kw { color: #0a4a8a; }
+  pre.code .ty { color: #8b1a1a; }
+  pre.code .cm { color: var(--ink-mute); font-style: italic; }
+  pre.code .fn { color: #14417a; }
+
+  /* ---- Papers ---- */
+  .papers { margin-top: 0.6rem; }
+  .paper-entry {
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .paper-entry:last-child { border-bottom: none; }
+  .paper-entry .kicker {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-mute);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .paper-entry h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .paper-entry p {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+    text-align: justify;
+    hyphens: auto;
+  }
+  .paper-entry .links {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+  }
+  .paper-entry .links a {
+    margin-right: 0.9rem;
+    color: var(--link);
+    border-bottom: none;
+  }
+  .paper-entry .links a:hover { text-decoration: underline; }
+
+  /* ---- Resource list ---- */
+  .resources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.4rem 1.6rem;
+    margin-top: 0.4rem;
+  }
+  .resources a {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding: 0.85rem 0;
+    border-bottom: 1px dotted var(--rule);
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: inherit;
+  }
+  .resources a:hover { color: var(--link); border-bottom-color: var(--link); }
+  .resources a:hover .rt { color: var(--link); }
+  .resources .rk {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--ink-mute);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .resources .rt {
+    font-size: 0.96rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .resources .rd {
+    font-size: 0.86rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  /* ---- CTA row ---- */
+  .cta-row {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.6rem 1.05rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 3px;
+    color: var(--ink);
+    background: var(--bg);
+    text-decoration: none;
+    border-bottom: 1px solid var(--rule-strong);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn:hover { border-color: var(--ink); color: var(--ink); }
+  .btn.primary {
+    background: var(--ink);
+    color: var(--bg);
+    border-color: var(--ink);
+  }
+  .btn.primary:hover { background: #333; border-color: #333; color: var(--bg); }
+
+  @media (max-width: 520px) {
+    .specs { grid-template-columns: 1fr; gap: 0.2rem 0; }
+    .specs dt { padding-top: 0.7rem; }
+    .tabs { font-size: 0.82rem; gap: 0.15rem 1rem; }
+    .flow { font-size: 0.85rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ============ TOPBAR ============ -->
+  <div class="topbar">
+    <nav class="nav" aria-label="Main">
+      <a href="index.html">
+        <span data-lang-content="en">← Kasra Fouladi</span>
+        <span data-lang-content="fa">→ کسری فولادی</span>
+      </a>
+      <a href="competition.html" class="here">
+        <span data-lang-content="en">Competition</span>
+        <span data-lang-content="fa">مسابقه</span>
+      </a>
+    </nav>
+    <div class="right">
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button id="btn-en" aria-pressed="true">EN</button>
+        <span class="sep">·</span>
+        <button id="btn-fa" aria-pressed="false">فا</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <header class="comp-intro">
+    <h1 data-lang-content="en">StrikeForce Competition</h1>
+    <h1 data-lang-content="fa">مسابقه‌ی StrikeForce</h1>
+
+    <p class="lead" data-lang-content="en">
+      A research-grade multi-agent battle royale. Agents built by different teams enter the same arena, under partial observation, deciding in real time against opponents they have never seen before. The last agent standing wins.
+    </p>
+    <p class="lead" data-lang-content="fa">
+      یک بتل رویال چندعامله در سطح پژوهشی. ایجنت‌هایی که تیم‌های مختلف ساخته‌اند، هم‌زمان وارد یک میدان مشترک می‌شوند؛ با دید محدود، و در برابر حریف‌هایی که هرگز ندیده‌اند تصمیم می‌گیرند. آخرین ایجنت باقی‌مانده، برنده است.
+    </p>
+
+    <div class="comp-meta">
+      <span data-lang-content="en"><span class="k">Date</span><span class="v">Coming soon</span></span>
+      <span data-lang-content="fa"><span class="k">زمان</span><span class="v">به‌زودی اعلام می‌شود</span></span>
+      <span data-lang-content="en"><span class="k">Reward</span><span class="v">Prizes for winners</span></span>
+      <span data-lang-content="fa"><span class="k">پاداش</span><span class="v">جایزه برای برندگان</span></span>
+      <span data-lang-content="en"><span class="k">Compute</span><span class="v">CPU-only, on your laptop</span></span>
+      <span data-lang-content="fa"><span class="k">محاسبات</span><span class="v">فقط CPU، روی لپ‌تاپ خودتان</span></span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn primary" href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">
+        <span data-lang-content="en">GitHub Repository</span>
+        <span data-lang-content="fa">مخزن GitHub</span>
+      </a>
+      <a class="btn" href="https://t.me/StrikeForce21" target="_blank" rel="noopener">
+        <span data-lang-content="en">Telegram Channel</span>
+        <span data-lang-content="fa">کانال تلگرام</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ============ TABS ============ -->
+  <nav class="tabs" role="tablist" aria-label="Sections">
+    <button role="tab" data-tab="overview" aria-selected="true">
+      <span data-lang-content="en">Overview</span>
+      <span data-lang-content="fa">معرفی</span>
+    </button>
+    <button role="tab" data-tab="format" aria-selected="false">
+      <span data-lang-content="en">Format &amp; Rules</span>
+      <span data-lang-content="fa">فرمت و قوانین</span>
+    </button>
+    <button role="tab" data-tab="research" aria-selected="false">
+      <span data-lang-content="en">Research</span>
+      <span data-lang-content="fa">پژوهش</span>
+    </button>
+    <button role="tab" data-tab="resources" aria-selected="false">
+      <span data-lang-content="en">Resources</span>
+      <span data-lang-content="fa">منابع</span>
+    </button>
+  </nav>
+
+  <!-- ============ TAB 01 — OVERVIEW ============ -->
+  <section class="tabpanel active" data-panel-id="overview">
+    <section class="s">
+      <h2 data-lang-content="en">The environment</h2>
+      <h2 data-lang-content="fa">درباره‌ی محیط</h2>
+
+      <div data-lang-content="en" dir="ltr" lang="en">
+        <p class="body">StrikeForce is an open-source, partially observable 2D battle-arena environment built in C++17 — a testbed for imitation learning, reinforcement learning, and multi-agent research, disguised as a playable survival shooter. It ships a full client–server networking protocol, deterministic seeded simulation with frame-level replay logging, an account and progression system, and a pluggable agent-plugin interface so a research policy can be swapped in without touching the simulation core.</p>
+
+        <div class="features">
+          <div class="feature">
+            <h3>Partial observability</h3>
+            <p>Agents see a bounded local window of the map, not the full game state — fog of war is a first-class design constraint.</p>
+          </div>
+          <div class="feature">
+            <h3>Deterministic replay</h3>
+            <p>Every match can be logged frame-by-frame and re-run exactly, for debugging, auditing, and dataset collection.</p>
+          </div>
+          <div class="feature">
+            <h3>Client–server multiplayer</h3>
+            <p>A dedicated match server authenticates players, assigns teams, and arbitrates the match, with support for networked battle royale.</p>
+          </div>
+          <div class="feature">
+            <h3>Open agent interface</h3>
+            <p>An agent plugin implements <code>predict</code>, <code>update</code>, and <code>is_manual</code>. Everything else is up to the team.</p>
+          </div>
+        </div>
+      </div>
+
+      <div data-lang-content="fa" dir="rtl" lang="fa">
+        <p class="body">StrikeForce یک محیط نبرد دوبعدی متن‌باز با مشاهده‌ی جزئی است که با C++17 نوشته شده — یک بستر پژوهشی برای یادگیری تقلیدی، یادگیری تقویتی، و تحقیقات چندعامله، در قالب یک بازی بقا و تیراندازی قابل‌بازی. این محیط یک پروتکل کامل client-server، شبیه‌سازی دترمینیستیک با seed مشخص و replay در سطح فریم، سیستم حساب کاربری و پیشرفت، و یک رابط Plugin برای agent داراست که با آن می‌توان یک policy پژوهشی را بدون دست‌زدن به هسته‌ی شبیه‌سازی جایگزین کرد.</p>
+
+        <div class="features">
+          <div class="feature">
+            <h3>دید محدود</h3>
+            <p>ایجنت‌ها فقط یک پنجره‌ی محلی محدود از نقشه را می‌بینند، نه کل وضعیت بازی را.</p>
+          </div>
+          <div class="feature">
+            <h3>Replay دترمینیستیک</h3>
+            <p>هر Match می‌تواند فریم‌به‌فریم لاگ شود و دقیقاً دوباره اجرا شود، برای دیباگ، بررسی و جمع‌آوری دیتاست.</p>
+          </div>
+          <div class="feature">
+            <h3>Multiplayer با Client-Server</h3>
+            <p>یک سرور اختصاصی بازیکن‌ها را احراز هویت می‌کند، تیم‌بندی می‌کند، و Match را داوری می‌کند.</p>
+          </div>
+          <div class="feature">
+            <h3>رابط Agent باز</h3>
+            <p>یک Agent Plugin سه متد <code>predict</code>، <code>update</code> و <code>is_manual</code> را پیاده می‌کند. باقی چیزها دست خود تیم است.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="s">
+      <h2 data-lang-content="en">Environment at a glance</h2>
+      <h2 data-lang-content="fa">مشخصات فنی</h2>
+
+      <dl class="specs" data-lang-content="en" dir="ltr" lang="en">
+        <dt>Language</dt><dd>C++17</dd>
+        <dt>World</dt><dd>3 stacked floors · <em>30 × 100</em> grid each</dd>
+        <dt>Observation</dt><dd><em>32 × 31 × 31</em> egocentric crop</dd>
+        <dt>Action space</dt><dd>29 human commands · example plugin uses <em>7</em></dd>
+        <dt>Game modes</dt><dd><em>5</em> — Solo, Timer, Squad, Battle Royal, AI Battle Royal</dd>
+        <dt>Item catalog</dt><dd><em>16</em> items across 4 categories + backpack upgrade</dd>
+        <dt>Entity capacity</dt><dd><em>9000</em> each for humans, zombies, bullets, chests</dd>
+        <dt>Determinism</dt><dd>Seeded PRNG · frame-level <em>.sf_sample</em> replay</dd>
+        <dt>Networking</dt><dd>TCP · server-side match arbitration</dd>
+        <dt>CPU footprint</dt><dd>Peak <em>11%</em> of one i7-8550U core</dd>
+        <dt>Memory</dt><dd>Peak <em>110 MB</em> resident (full client)</dd>
+        <dt>GPU</dt><dd><em>Not required</em> · CPU-only inference</dd>
+      </dl>
+
+      <dl class="specs" data-lang-content="fa" dir="rtl" lang="fa">
+        <dt>زبان</dt><dd>C++17</dd>
+        <dt>دنیا</dt><dd>۳ طبقه · گرید <em>۳۰ × ۱۰۰</em></dd>
+        <dt>مشاهده</dt><dd>برش خودمحور <em>۳۲ × ۳۱ × ۳۱</em></dd>
+        <dt>فضای اکشن</dt><dd>۲۹ فرمان انسانی · پلاگین نمونه <em>۷</em></dd>
+        <dt>حالت‌های بازی</dt><dd><em>۵</em> حالت — Solo، Timer، Squad، Battle Royal، AI Battle Royal</dd>
+        <dt>کاتالوگ آیتم</dt><dd><em>۱۶</em> آیتم در ۴ دسته + ارتقای کوله‌پشتی</dd>
+        <dt>ظرفیت موجودات</dt><dd><em>۹۰۰۰</em> برای انسان، زامبی، گلوله، صندوق</dd>
+        <dt>دترمینیزم</dt><dd>PRNG با seed · Replay فریم‌به‌فریم <em>.sf_sample</em></dd>
+        <dt>شبکه</dt><dd>TCP · داوری Match در سمت سرور</dd>
+        <dt>مصرف CPU</dt><dd>اوج <em>۱۱٪</em> از یک هسته i7-8550U</dd>
+        <dt>حافظه</dt><dd>اوج <em>۱۱۰ مگابایت</em></dd>
+        <dt>GPU</dt><dd><em>لازم نیست</em> · فقط CPU</dd>
+      </dl>
+    </section>
+  </section>
+
+  <!-- ============ TAB 02 — FORMAT & RULES ============ -->
+  <section class="tabpanel" data-panel-id="format">
+    <section class="s">
+      <h2 data-lang-content="en">How the competition works</h2>
+      <h2 data-lang-content="fa">مسابقه چطور برگزار می‌شود؟</h2>
+
+      <p class="body" data-lang-content="en" dir="ltr" lang="en">This is not each team scoring separately against the environment. All agents are dropped into the same battle royale and play each other directly — opponent behavior is part of the problem, not a fixed backdrop. Every agent runs locally, CPU-only, on its own team's laptop; the competition server just runs the authoritative simulation and relays actions.</p>
+      <p class="body" data-lang-content="fa" dir="rtl" lang="fa">اینجا قرار نیست هر تیم جدا جدا در برابر محیط امتیاز بگیرد. همه‌ی ایجنت‌ها با هم وارد یک بتل رویال مشترک می‌شوند و مستقیماً با هم بازی می‌کنند — یعنی رفتار حریف بخشی از خود مسئله است. هر ایجنت به‌صورت لوکال و فقط روی CPU، روی لپ‌تاپ خود تیم اجرا می‌شود؛ سرور مسابقه فقط شبیه‌سازی رسمی را اجرا می‌کند و اکشن‌ها را رله می‌کند.</p>
+
+      <div class="flow" data-lang-content="en">
+        <span class="step">Registration</span><span class="arrow">→</span>
+        <span class="step">Submission &amp; verification</span><span class="arrow">→</span>
+        <span class="step">Group stage</span><span class="arrow">→</span>
+        <span class="step">Semifinals</span><span class="arrow">→</span>
+        <span class="step">Final</span>
+      </div>
+      <div class="flow" data-lang-content="fa" dir="rtl">
+        <span class="step">ثبت‌نام</span><span class="arrow">←</span>
+        <span class="step">ارسال و بررسی فنی</span><span class="arrow">←</span>
+        <span class="step">مرحله‌ی گروهی</span><span class="arrow">←</span>
+        <span class="step">نیمه‌نهایی</span><span class="arrow">←</span>
+        <span class="step">فینال</span>
+      </div>
+    </section>
+
+    <section class="s">
+      <h2 data-lang-content="en">Fair by construction</h2>
+      <h2 data-lang-content="fa">منصف از پایه</h2>
+
+      <div class="rules" data-lang-content="en" dir="ltr" lang="en">
+        <div class="r"><p>Every submission is reviewed and integration-tested against the official competition build before the event — not on-the-spot.</p></div>
+        <div class="r"><p>The verified submission is hash-locked, so what is tested is exactly what runs on match day.</p></div>
+        <div class="r"><p>Inference is CPU-only, on the participant's own laptop, over an isolated competition network.</p></div>
+        <div class="r"><p>Every match is logged frame-by-frame and fully replayable, so any disputed result can be re-examined.</p></div>
+      </div>
+
+      <div class="rules" data-lang-content="fa" dir="rtl" lang="fa">
+        <div class="r"><p>هر submission قبل از رویداد بررسی و روی build رسمی مسابقه integration-test می‌شود — نه سر صحنه.</p></div>
+        <div class="r"><p>نسخه‌ی تأییدشده hash-lock می‌شود، تا همان چیزی که تست شده، دقیقاً روز مسابقه اجرا شود.</p></div>
+        <div class="r"><p>Inference فقط روی CPU، روی لپ‌تاپ خود participant، و روی شبکه‌ی ایزوله‌ی مسابقه انجام می‌شود.</p></div>
+        <div class="r"><p>هر Match فریم‌به‌فریم لاگ و کاملاً قابل Replay است، تا هر نتیجه‌ی مورد اعتراض قابل بازبینی باشد.</p></div>
+      </div>
+    </section>
+
+    <section class="s">
+      <h2 data-lang-content="en">Agent interface</h2>
+      <h2 data-lang-content="fa">رابط Agent</h2>
+
+      <p class="body" data-lang-content="en" dir="ltr" lang="en">An agent plugin is a class the simulation loop talks to through three methods. Observation encoding, action mapping, network architecture, and heuristic logic all live inside the team's plugin. Pointing two indirection headers (<code>selected_agent.hpp</code> and <code>selected_custom.hpp</code>) at an alternative implementation swaps the policy without modifying the simulation core.</p>
+      <p class="body" data-lang-content="fa" dir="rtl" lang="fa">یک Agent Plugin یک کلاس است که حلقه‌ی شبیه‌سازی از طریق سه متد با آن حرف می‌زند. انکودینگ مشاهده، نگاشت اکشن، معماری شبکه، و منطق heuristic همگی داخل پلاگین خود تیم قرار می‌گیرند. با اشاره‌ی دو هدر واسط (<code>selected_agent.hpp</code> و <code>selected_custom.hpp</code>) به یک پیاده‌سازی جایگزین، می‌شود policy را بدون دست‌زدن به هسته‌ی شبیه‌سازی عوض کرد.</p>
+
+      <div class="code-block">
+        <div class="code-head"><span>Agent.hpp — minimal plugin contract</span></div>
+<pre class="code"><span class="kw">class</span> <span class="ty">Agent</span> {
+<span class="kw">public</span>:
+    <span class="fn">Agent</span>(<span class="ty">bool</span> training = <span class="kw">true</span>);
+
+    <span class="cm">// Called once the plugin's encoder has produced the observation.</span>
+    <span class="ty">int</span>  <span class="fn">predict</span>(<span class="kw">const</span> std::vector&lt;<span class="ty">float</span>&gt;&amp; obs);
+
+    <span class="cm">// Called after a command is applied to the environment.</span>
+    <span class="ty">void</span> <span class="fn">update</span>(<span class="ty">int</span> action, <span class="ty">bool</span> imitate);
+
+    <span class="cm">// Queried each frame to decide human input vs. plugin output.</span>
+    <span class="ty">bool</span> <span class="fn">is_manual</span>();
+};</pre>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ TAB 03 — RESEARCH ============ -->
+  <section class="tabpanel" data-panel-id="research">
+    <section class="s">
+      <h2 data-lang-content="en">Built on active research</h2>
+      <h2 data-lang-content="fa">بر پایه‌ی پژوهش فعال</h2>
+
+      <p class="body" data-lang-content="en" dir="ltr" lang="en">StrikeForce already has research behind it. Three studies use it as their testbed, and all are part of the same broader project this competition grows out of.</p>
+      <p class="body" data-lang-content="fa" dir="rtl" lang="fa">StrikeForce از قبل پشتوانه‌ی پژوهشی دارد. سه مطالعه از این محیط به‌عنوان testbed خود استفاده کرده‌اند، و همه بخشی از همان پروژه‌ی بزرگ‌تری هستند که این مسابقه از دل آن بیرون آمده.</p>
+
+      <div class="papers" data-lang-content="en" dir="ltr" lang="en">
+        <div class="paper-entry">
+          <div class="kicker">Testbed · POMDPs · Multi-agent</div>
+          <h3>StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</h3>
+          <p>The environment paper itself: documents the world, observation and action spaces, software architecture, networking protocol, checkpoint-transfer service, and measured CPU/memory footprint.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.24446.96326" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="paper-entry">
+          <div class="kicker">Imitation learning · POMDPs</div>
+          <h3>No Back-Propagation Through Time via Future Action Prediction</h3>
+          <p>A decoupled imitation-learning architecture that removes BPTT from the perception backbone: a Future-Action Predictor trained only to forecast the expert's next actions, feeding a bounded-window Transformer aggregator through a stop-gradient boundary.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.18971.43049" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="paper-entry">
+          <div class="kicker">Continual learning · Model repair</div>
+          <h3>Targeted Behavioral Repair with Contaminated Anchors</h3>
+          <p>Studies correcting a specific, identified failure in an already-trained StrikeForce policy without retraining from scratch, combining parameter-space (EWC) and output-space (KD) preservation, and formalizing the case where the anchor set used for preservation is not itself failure-free.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.11421.68328" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="papers" data-lang-content="fa" dir="rtl" lang="fa">
+        <div class="paper-entry">
+          <div class="kicker">Testbed · POMDPs · Multi-agent</div>
+          <h3>StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</h3>
+          <p>خودِ مقاله‌ی محیط: دنیا، فضاهای مشاهده و اکشن، معماری نرم‌افزار، پروتکل شبکه، سرویس انتقال checkpoint، و ردپای CPU/حافظه‌ی اندازه‌گیری‌شده را مستند می‌کند.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.24446.96326" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="paper-entry">
+          <div class="kicker">Imitation Learning · POMDPs</div>
+          <h3>No Back-Propagation Through Time via Future Action Prediction</h3>
+          <p>یک معماری Imitation Learning جداشده که BPTT را از بک‌بون ادراکی حذف می‌کند: یک Future-Action Predictor که فقط برای پیش‌بینی اکشن‌های بعدی خبره آموزش دیده، که خروجی‌اش از پشت یک مرز stop-gradient وارد یک Transformer aggregator با پنجره‌ی محدود می‌شود.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.18971.43049" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="paper-entry">
+          <div class="kicker">Continual Learning · Model Repair</div>
+          <h3>Targeted Behavioral Repair with Contaminated Anchors</h3>
+          <p>بررسی تصحیح یک خطای رفتاری مشخص در یک policy از‌پیش‌آموزش‌دیده‌ی StrikeForce، بدون آموزش دوباره از صفر؛ با ترکیب preservation در فضای پارامتر (EWC) و فضای خروجی (KD)، و صورت‌بندی حالتی که مجموعه‌ی anchor مورد استفاده برای preservation خودش هم عاری از خطا نیست.</p>
+          <div class="links">
+            <a href="https://doi.org/10.13140/RG.2.2.11421.68328" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ TAB 04 — RESOURCES ============ -->
+  <section class="tabpanel" data-panel-id="resources">
+    <section class="s">
+      <h2 data-lang-content="en">Resources</h2>
+      <h2 data-lang-content="fa">منابع</h2>
+
+      <p class="body" data-lang-content="en" dir="ltr" lang="en">Everything you need to read the code, run the environment, follow the research, and access the checkpoints.</p>
+      <p class="body" data-lang-content="fa" dir="rtl" lang="fa">هر چیزی که برای خواندن کد، اجرای محیط، دنبال‌کردن پژوهش و دسترسی به checkpointها لازم دارید.</p>
+
+      <div class="resources" data-lang-content="en" dir="ltr" lang="en">
+        <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">
+          <span class="rk">Code</span>
+          <span class="rt">StrikeForce on GitHub</span>
+          <span class="rd">The full C++17 client, server, agent-plugin interface, and example plugins. MIT-licensed.</span>
+        </a>
+        <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">
+          <span class="rk">Code</span>
+          <span class="rt">No-BPTT-via-FAP repository</span>
+          <span class="rd">The decoupled FAP / Transformer-aggregator architecture and the EWC+KD behavioral-repair pipeline.</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1S2dE6DfzBU09ILpeJJ8UvtTGE0gAU-x1?usp=sharing" target="_blank" rel="noopener">
+          <span class="rk">Artifacts</span>
+          <span class="rt">Checkpoints &amp; datasets</span>
+          <span class="rd">Pre-trained FAP and aggregator checkpoints, θ₀ / θ_FT / θ* repair checkpoints, anchor and corrective datasets, and failure-rate logs.</span>
+        </a>
+        <a href="https://github.com/bistoyek21-ric/StrikeForceAPI" target="_blank" rel="noopener">
+          <span class="rk">Service</span>
+          <span class="rt">StrikeForceAPI server</span>
+          <span class="rd">Flask + SQLite checkpoint-transfer service with parent–child lineage for crowdsourced training rounds.</span>
+        </a>
+        <a href="https://t.me/StrikeForce21" target="_blank" rel="noopener">
+          <span class="rk">Community</span>
+          <span class="rt">Telegram Channel</span>
+          <span class="rd">Registration updates, schedule announcements, and technical Q&amp;A with the organizers.</span>
+        </a>
+        <a href="mailto:k4sr405@gmail.com">
+          <span class="rk">Contact</span>
+          <span class="rt">k4sr405@gmail.com</span>
+          <span class="rd">Direct inquiries for research collaboration or competition logistics.</span>
+        </a>
+      </div>
+
+      <div class="resources" data-lang-content="fa" dir="rtl" lang="fa">
+        <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">
+          <span class="rk">کد</span>
+          <span class="rt">StrikeForce در GitHub</span>
+          <span class="rd">کلاینت کامل C++17، سرور، رابط Agent Plugin و پلاگین‌های نمونه. با لایسنس MIT.</span>
+        </a>
+        <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">
+          <span class="rk">کد</span>
+          <span class="rt">مخزن No-BPTT-via-FAP</span>
+          <span class="rd">معماری جداشده‌ی FAP / Transformer-aggregator و خط لوله‌ی ترمیم رفتاری EWC+KD.</span>
+        </a>
+        <a href="https://drive.google.com/drive/folders/1S2dE6DfzBU09ILpeJJ8UvtTGE0gAU-x1?usp=sharing" target="_blank" rel="noopener">
+          <span class="rk">Artifacts</span>
+          <span class="rt">Checkpointها و دیتاست‌ها</span>
+          <span class="rd">Checkpointهای FAP و aggregator، checkpointهای ترمیم θ₀ / θ_FT / θ*، دیتاست‌های anchor و corrective، و لاگ‌های نرخ خطا.</span>
+        </a>
+        <a href="https://github.com/bistoyek21-ric/StrikeForceAPI" target="_blank" rel="noopener">
+          <span class="rk">سرویس</span>
+          <span class="rt">سرور StrikeForceAPI</span>
+          <span class="rd">سرویس انتقال checkpoint با Flask و SQLite و شجره‌نامه‌ی parent–child برای دورهای آموزش crowdsourced.</span>
+        </a>
+        <a href="https://t.me/StrikeForce21" target="_blank" rel="noopener">
+          <span class="rk">اجتماع</span>
+          <span class="rt">کانال تلگرام</span>
+          <span class="rd">به‌روزرسانی‌های ثبت‌نام، اعلان زمان‌بندی و پرسش‌وپاسخ فنی با برگزارکنندگان.</span>
+        </a>
+        <a href="mailto:k4sr405@gmail.com">
+          <span class="rk">تماس</span>
+          <span class="rt">k4sr405@gmail.com</span>
+          <span class="rd">برای همکاری پژوهشی یا هماهنگی‌های مسابقه.</span>
+        </a>
+      </div>
+    </section>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="competition.html">
+        <span data-lang-content="en">Competition</span>
+        <span data-lang-content="fa">مسابقه</span>
+      </a>
+      <a href="https://github.com/bistoyek21-ric/StrikeForce" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://t.me/StrikeForce21" target="_blank" rel="noopener">Telegram</a>
+    </div>
+    <div>© 2026 Kasra Fouladi</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btnEn = document.getElementById('btn-en');
+  var btnFa = document.getElementById('btn-fa');
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs button'));
+  var panels = Array.prototype.slice.call(document.querySelectorAll('.tabpanel'));
+
+  function setLang(lang) {
+    root.setAttribute('data-lang', lang);
+    root.setAttribute('lang', lang);
+    root.setAttribute('dir', lang === 'fa' ? 'rtl' : 'ltr');
+    btnEn.setAttribute('aria-pressed', String(lang === 'en'));
+    btnFa.setAttribute('aria-pressed', String(lang === 'fa'));
+    try { localStorage.setItem('sf-lang', lang); } catch (e) {}
+  }
+
+  function setTab(name) {
+    tabs.forEach(function (t) {
+      t.setAttribute('aria-selected', String(t.dataset.tab === name));
+    });
+    panels.forEach(function (p) {
+      p.classList.toggle('active', p.dataset.panelId === name);
+    });
+    try { history.replaceState(null, '', '#' + name); } catch (e) {}
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () { setTab(t.dataset.tab); });
+  });
+
+  try {
+    var saved = localStorage.getItem('sf-lang');
+    if (saved === 'fa' || saved === 'en') setLang(saved);
+  } catch (e) {}
+
+  var initial = (window.location.hash || '').replace('#', '');
+  if (initial && tabs.some(function (t) { return t.dataset.tab === initial; })) {
+    setTab(initial);
+  }
+
+  btnEn.addEventListener('click', function () { setLang('en'); });
+  btnFa.addEventListener('click', function () { setLang('fa'); });
+})();
+</script>
+</body>
+</html>
