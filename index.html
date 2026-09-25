@@ -10,6 +10,33 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<style>
+  /* ===== CV download button (inline so no need to touch style.css) ===== */
+  .cv-btn{
+    display:inline-flex; align-items:center; gap:.4em;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.82rem; font-weight:500; letter-spacing:.02em;
+    padding:.38em .8em;
+    border:1px solid currentColor; border-radius:5px;
+    text-decoration:none; color:inherit;
+    transition: background-color .15s ease, color .15s ease, transform .15s ease;
+    white-space:nowrap;
+  }
+  .cv-btn:hover{ background:currentColor; transform: translateY(-1px); }
+  .cv-btn:hover span{ color:#fdfdfc; }
+  .cv-btn svg{ width:.95em; height:.95em; flex:0 0 auto; }
+
+  .cv-btn--primary{
+    font-size:.88rem;
+    padding:.5em 1.05em;
+  }
+
+  .cv-inline{
+    display:inline-flex; align-items:center; gap:.35em;
+  }
+  .cv-inline svg{ width:.9em; height:.9em; }
+</style>
 </head>
 <body>
 <div class="page">
@@ -39,6 +66,15 @@
       </a>
     </nav>
     <div class="right">
+      <a class="cv-btn" href="CV-Kasra-Fouladi.pdf" download aria-label="Download CV">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/>
+          <path d="M7 11l5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+        <span data-lang-content="en">CV</span>
+        <span data-lang-content="fa">CV</span>
+      </a>
       <div class="lang-toggle" role="group" aria-label="Language">
         <button id="btn-en" aria-pressed="true">EN</button>
         <span class="sep">·</span>
@@ -65,6 +101,17 @@
       <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener">LinkedIn</a>
     </p>
+    <p class="quick-links" style="margin-top:.7rem">
+      <a class="cv-btn cv-btn--primary" href="CV-Kasra-Fouladi.pdf" download>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/>
+          <path d="M7 11l5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+        <span data-lang-content="en">Download CV</span>
+        <span data-lang-content="fa">دانلود CV</span>
+      </a>
+    </p>
   </header>
 
   <header class="intro" data-lang-content="fa" dir="rtl" lang="fa">
@@ -83,6 +130,17 @@
       <a href="https://scholar.google.com/citations?user=sFi6mw8AAAAJ&hl=en" target="_blank" rel="noopener">گوگل اسکالر</a>
       <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">گیت‌هاب</a>
       <a href="https://www.linkedin.com/in/kasra-fouladi-bba559295/" target="_blank" rel="noopener">لینکدین</a>
+    </p>
+    <p class="quick-links" style="margin-top:.7rem">
+      <a class="cv-btn cv-btn--primary" href="CV-Kasra-Fouladi.pdf" download>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 3v12"/>
+          <path d="M7 11l5 5 5-5"/>
+          <path d="M5 21h14"/>
+        </svg>
+        <span data-lang-content="en">Download CV</span>
+        <span data-lang-content="fa">دانلود CV</span>
+      </a>
     </p>
   </header>
 
@@ -245,14 +303,21 @@
       <div class="entry-sub">Iran University of Science and Technology, Tehran, Iran</div>
       <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
         <strong>GPA:</strong> 93 / 100. <br>
-        <strong>Relevant coursework (grades ≥ 95):</strong>
+        <strong>Relevant coursework (grades ≥ 95):</strong><br>
+        <em>Mathematics &amp; Theory:</em>
         Mathematical Analysis <span class="courses grade">(100)</span>,
-        Data Structures <span class="courses grade">(100)</span>,
-        Design and Analysis of Algorithms <span class="courses grade">(100)</span>,
+        Set Theory <span class="courses grade">(100)</span>,
+        Mathematical Foundations <span class="courses grade">(97.5)</span>,
         Linear Optimization <span class="courses grade">(97.5)</span>,
         Probability <span class="courses grade">(96.5)</span>,
         Combinatorics <span class="courses grade">(95)</span>,
-        Computer Simulation <span class="courses grade">(95)</span>.
+        Fundamentals of Computation Theory <span class="courses grade">(95)</span>,
+        Ordinary Differential Equations <span class="courses grade">(95)</span>.
+        <br>
+        <em>CS &amp; Research:</em>
+        Data Structures <span class="courses grade">(100)</span>,
+        Design and Analysis of Algorithms <span class="courses grade">(100)</span>,
+        Research Methodology and Report Writing <span class="courses grade">(100; practical work included)</span>.
       </p>
     </div>
 
@@ -264,14 +329,21 @@
       <div class="entry-sub">دانشگاه علم و صنعت ایران، تهران، ایران</div>
       <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
         <strong>معدل:</strong> ۹۳ از ۱۰۰. <br>
-        <strong>دروس مرتبط (نمرات ۹۵+):</strong>
+        <strong>دروس مرتبط (نمرات ۹۵+):</strong><br>
+        <em>ریاضی و نظریه:</em>
         آنالیز ریاضی <span class="courses grade">(۱۰۰)</span>،
-        ساختمان داده <span class="courses grade">(۱۰۰)</span>،
-        طراحی و تحلیل الگوریتم‌ها <span class="courses grade">(۱۰۰)</span>،
+        نظریه‌ی مجموعه‌ها <span class="courses grade">(۱۰۰)</span>،
+        مبانی ریاضی <span class="courses grade">(۹۷.۵)</span>،
         بهینه‌سازی خطی <span class="courses grade">(۹۷.۵)</span>،
         احتمال <span class="courses grade">(۹۶.۵)</span>،
         ترکیبیات <span class="courses grade">(۹۵)</span>،
-        شبیه‌سازی کامپیوتری <span class="courses grade">(۹۵)</span>.
+        مبانی نظریه‌ی محاسبه <span class="courses grade">(۹۵)</span>،
+        معادلات دیفرانسیل معمولی <span class="courses grade">(۹۵)</span>.
+        <br>
+        <em>علوم کامپیوتر و پژوهش:</em>
+        ساختمان داده <span class="courses grade">(۱۰۰)</span>،
+        طراحی و تحلیل الگوریتم‌ها <span class="courses grade">(۱۰۰)</span>،
+        روش تحقیق و گزارش‌نویسی <span class="courses grade">(۱۰۰؛ شامل بخش عملی)</span>.
       </p>
     </div>
   </section>
@@ -398,6 +470,7 @@
       </a>
       <a href="https://github.com/kasrafouladi" target="_blank" rel="noopener">GitHub</a>
       <a href="mailto:k4sr405@gmail.com">Email</a>
+      <a href="CV-Kasra-Fouladi.pdf" download>CV</a>
     </div>
     <div>© 2026 Kasra Fouladi</div>
   </footer>
