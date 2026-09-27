@@ -83,37 +83,22 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   gap: 0.2rem 1.1rem;
   align-items: baseline;
 }
-.topbar .nav a {
-  color: var(--ink-soft);
-  border-bottom: none;
-}
+.topbar .nav a { color: var(--ink-soft); border-bottom: none; }
 .topbar .nav a:hover { color: var(--link); }
 .topbar .nav a.here { color: var(--ink); font-weight: 600; }
-.topbar .right {
-  display: flex;
-  align-items: baseline;
-  gap: 0.9rem;
-}
+.topbar .right { display: flex; align-items: baseline; gap: 0.9rem; }
 .lang-toggle {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  font-family: var(--sans);
-  font-size: 0.82rem;
+  display: inline-flex; align-items: baseline; gap: 0.35rem;
+  font-family: var(--sans); font-size: 0.82rem;
 }
 .lang-toggle button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.1rem 0.35rem;
-  color: var(--ink-mute);
-  font: inherit;
-  border-radius: 2px;
+  background: none; border: none; cursor: pointer;
+  padding: 0.1rem 0.35rem; color: var(--ink-mute);
+  font: inherit; border-radius: 2px;
 }
 .lang-toggle button:hover { color: var(--ink); }
 .lang-toggle button[aria-pressed="true"] {
-  color: var(--ink);
-  font-weight: 600;
+  color: var(--ink); font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
@@ -130,11 +115,7 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
 }
-.intro .subtitle {
-  font-size: 1.02rem;
-  color: var(--ink-soft);
-  line-height: 1.55;
-}
+.intro .subtitle { font-size: 1.02rem; color: var(--ink-soft); line-height: 1.55; }
 .intro .subtitle a { border-bottom-color: var(--rule-strong); }
 .intro .subtitle a:hover { border-bottom-color: var(--link); }
 .intro .contact {
@@ -144,16 +125,12 @@ a:hover { color: var(--link-hover); border-bottom-color: currentColor; }
   color: var(--ink-mute);
   line-height: 1.8;
 }
-.intro .contact a {
-  color: var(--ink-soft);
-  border-bottom: none;
-}
+.intro .contact a { color: var(--ink-soft); border-bottom: none; }
 .intro .contact a:hover { color: var(--link); }
 .intro .sep { color: var(--rule-strong); margin: 0 0.45rem; }
 .intro .quick-links {
   margin-top: 1rem;
-  display: flex;
-  flex-wrap: wrap;
+  display: flex; flex-wrap: wrap;
   gap: 0.35rem 1.1rem;
   font-size: 0.92rem;
 }
@@ -181,11 +158,7 @@ p.body strong { color: var(--ink); font-weight: 600; }
 p.body em { font-style: italic; }
 
 /* ---- Interests ---- */
-.interests {
-  font-size: 0.95rem;
-  color: var(--ink-soft);
-  line-height: 1.8;
-}
+.interests { font-size: 0.95rem; color: var(--ink-soft); line-height: 1.8; }
 .interests .label { color: var(--ink); font-weight: 600; }
 
 /* ---- News ---- */
@@ -235,14 +208,8 @@ p.body em { font-style: italic; }
   margin-bottom: 0.3rem;
   color: var(--ink);
 }
-.pub-authors {
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  margin-bottom: 0.15rem;
-}
-.pub-authors em { font-style: normal; color: var(--ink); }
 
-/* Row: authors (leading side) + download/DOI links (trailing side) */
+/* ---- Row: authors + download/DOI links ---- */
 .pub-head {
   display: flex;
   align-items: center;
@@ -255,33 +222,43 @@ p.body em { font-style: italic; }
   margin-bottom: 0.15rem;
 }
 .pub-head .pub-authors {
-  margin-bottom: 0;
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
   line-height: 1.4;
 }
+.pub-head .pub-authors em { font-style: normal; color: var(--ink); }
 .pub-head .pub-links {
-  margin-top: 0;
+  margin: 0;
   flex-shrink: 0;
-}
-
-.pub-venue {
-  font-size: 0.9rem;
-  color: var(--ink-mute);
-  font-style: italic;
-}
-.pub-links {
-  margin-top: 0.4rem;
-  font-family: var(--mono);
-  font-size: 0.76rem;
   display: inline-flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  line-height: 1.4;
+  overflow: visible;
 }
-.pub-links a {
+.pub-head .pub-links a {
   border-bottom: none;
   color: var(--link);
 }
-.pub-links a:hover { color: var(--link-hover); text-decoration: underline; }
+.pub-head .pub-links a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+/* FIX: make sure the CV button inside pub-links keeps its full border
+   (this rule has higher specificity than `.pub-links a { border-bottom: none }`) */
+.pub-head .pub-links .cv-btn {
+  border: 1px solid currentColor;
+}
+.pub-head .pub-links .cv-btn:hover {
+  border: 1px solid currentColor;
+}
+
+.pub-venue { font-size: 0.9rem; color: var(--ink-mute); font-style: italic; }
 .pub-abstract {
   margin-top: 0.7rem;
   font-size: 0.9rem;
@@ -292,7 +269,7 @@ p.body em { font-style: italic; }
 }
 .pub-abstract .lead { color: var(--ink); font-weight: 600; }
 
-/* ---- Entry (education, experience, teaching) ---- */
+/* ---- Entry ---- */
 .entry { margin-bottom: 1.5rem; }
 .entry:last-child { margin-bottom: 0; }
 .entry-head {
@@ -333,16 +310,8 @@ p.body em { font-style: italic; }
 }
 
 /* ---- Courses ---- */
-.courses {
-  font-size: 0.92rem;
-  color: var(--ink-soft);
-  line-height: 1.9;
-}
-.courses .grade {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--ink-mute);
-}
+.courses { font-size: 0.92rem; color: var(--ink-soft); line-height: 1.9; }
+.courses .grade { font-family: var(--mono); font-size: 0.8rem; color: var(--ink-mute); }
 
 /* ---- Definition list ---- */
 .dl {
@@ -377,14 +346,9 @@ p.body em { font-style: italic; }
   border-bottom: 1px dotted var(--rule);
   padding: 0.5rem 0;
   color: var(--ink-soft);
-  border-top: none;
-  border-left: none;
-  border-right: none;
+  border-top: none; border-left: none; border-right: none;
 }
-.contact-list a:hover {
-  color: var(--link);
-  border-bottom-color: var(--link);
-}
+.contact-list a:hover { color: var(--link); border-bottom-color: var(--link); }
 .contact-list .k {
   font-family: var(--mono);
   font-size: 0.72rem;
@@ -442,6 +406,23 @@ html[dir="rtl"] .pub { padding-left: 0; padding-right: 2.4rem; }
 html[dir="rtl"] .pub::before { left: auto; right: 0; }
 html[dir="rtl"] .entry ul li { padding-left: 0; padding-right: 1.1rem; }
 html[dir="rtl"] .entry ul li::before { left: auto; right: 0; }
+
+/* ---- CV button (used in topbar, intro, and publication rows) ---- */
+.cv-btn{
+  display:inline-flex; align-items:center; gap:.4em;
+  font-family:"IBM Plex Mono", ui-monospace, monospace;
+  font-size:.82rem; font-weight:500; letter-spacing:.02em;
+  padding:.38em .8em;
+  border:1px solid currentColor; border-radius:5px;
+  text-decoration:none; color:inherit;
+  line-height:1.1; box-sizing:border-box; vertical-align:middle;
+  transition: background-color .15s ease, color .15s ease, transform .15s ease;
+  white-space:nowrap;
+}
+.cv-btn:hover{ background:currentColor; transform: translateY(-1px); }
+.cv-btn:hover span{ color:#fdfdfc; }
+.cv-btn svg{ width:.95em; height:.95em; flex:0 0 auto; }
+.cv-btn--primary{ font-size:.88rem; padding:.5em 1.05em; }
 
 /* ---- Mobile ---- */
 @media (max-width: 520px) {
