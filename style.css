@@ -437,3 +437,6 @@ html[dir="rtl"] .entry ul li::before { left: auto; right: 0; }
   .pub::before { font-size: 0.76rem; }
   .topbar .nav { font-size: 0.8rem; gap: 0.15rem 0.85rem; }
 }
+
+.pub-head .pub-links .cv-btn { border: 1px solid currentColor; }
+.pub-head .pub-links .cv-btn:hover { border: 1px solid currentColor; }
