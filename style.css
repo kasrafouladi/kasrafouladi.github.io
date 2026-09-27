@@ -241,6 +241,28 @@ p.body em { font-style: italic; }
   margin-bottom: 0.15rem;
 }
 .pub-authors em { font-style: normal; color: var(--ink); }
+
+/* Row: authors (leading side) + download/DOI links (trailing side) */
+.pub-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  overflow: visible;
+  min-height: 3rem;
+  padding: 0.3rem 0;
+  margin-bottom: 0.15rem;
+}
+.pub-head .pub-authors {
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+.pub-head .pub-links {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
 .pub-venue {
   font-size: 0.9rem;
   color: var(--ink-mute);
@@ -250,9 +272,12 @@ p.body em { font-style: italic; }
   margin-top: 0.4rem;
   font-family: var(--mono);
   font-size: 0.76rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
 }
 .pub-links a {
-  margin-right: 0.9rem;
   border-bottom: none;
   color: var(--link);
 }
@@ -415,7 +440,6 @@ html[dir="rtl"] .news-item { grid-template-columns: 1fr 90px; }
 html[dir="rtl"] .news-date { text-align: left; padding-top: 0; }
 html[dir="rtl"] .pub { padding-left: 0; padding-right: 2.4rem; }
 html[dir="rtl"] .pub::before { left: auto; right: 0; }
-html[dir="rtl"] .pub-links a { margin-right: 0; margin-left: 0.9rem; }
 html[dir="rtl"] .entry ul li { padding-left: 0; padding-right: 1.1rem; }
 html[dir="rtl"] .entry ul li::before { left: auto; right: 0; }
 
