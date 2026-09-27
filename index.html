@@ -37,6 +37,28 @@
     display:inline-flex; align-items:center; gap:.35em;
   }
   .cv-inline svg{ width:.9em; height:.9em; }
+
+  /* ===== wrapper for the authors + links row in each publication ===== */
+  .pub-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+    overflow:visible;
+    min-height:2.4rem;   /* ensures room for the download button */
+    padding:.3rem 0;
+    margin-bottom:.5rem;
+  }
+  .pub-head .pub-links{
+    margin:0;
+    flex-shrink:0;
+    overflow:visible;
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    line-height:1;
+  }
 </style>
 </head>
 <body>
@@ -200,9 +222,9 @@
 
       <article class="pub">
         <div class="pub-title">Interpretability-Guided Bi-objective Optimization: Aligning Accuracy and Explainability</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi</em> (corresponding), H. Rahmani.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="IGBO.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -221,9 +243,9 @@
 
       <article class="pub">
         <div class="pub-title">StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="StrikeForce.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -243,9 +265,9 @@
 
       <article class="pub">
         <div class="pub-title">No Back-Propagation Through Time via Future Action Prediction</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="No-BPTT-via-FAP.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -265,9 +287,9 @@
 
       <article class="pub">
         <div class="pub-title">Targeted Behavioral Repair with Contaminated Anchors</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="Behavioral-Repair.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -291,9 +313,9 @@
 
       <article class="pub">
         <div class="pub-title">Interpretability-Guided Bi-objective Optimization: Aligning Accuracy and Explainability</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi</em> (نویسنده‌ی مسئول)، H. Rahmani.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="IGBO.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -312,9 +334,9 @@
 
       <article class="pub">
         <div class="pub-title">StrikeForce: A 2D Partially Observable Battle-Arena Testbed for Imitation Learning and Multi-Agent Research</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="StrikeForce.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -334,9 +356,9 @@
 
       <article class="pub">
         <div class="pub-title">No Back-Propagation Through Time via Future Action Prediction</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="No-BPTT-via-FAP.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
@@ -356,9 +378,9 @@
 
       <article class="pub">
         <div class="pub-title">Targeted Behavioral Repair with Contaminated Anchors</div>
-        <div style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; overflow:visible; padding:4px 0; margin-bottom:1.1rem;">
+        <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
-          <div class="pub-links" style="margin:0; flex-shrink:0; overflow:visible; line-height:1.4;">
+          <div class="pub-links">
             <a class="cv-btn" href="Behavioral-Repair.pdf" download>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 3v12"/>
