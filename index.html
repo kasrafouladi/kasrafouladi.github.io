@@ -170,6 +170,7 @@
     <h2 data-lang-content="fa">اخبار</h2>
 
     <div class="news" data-lang-content="en" dir="ltr" lang="en">
+      <div class="news-item"><div class="news-date">Oct 2026</div><div class="news-text">Preprint released: <strong>TINAS: Transformer Interaction among N Agents with Shared Parameters</strong> (B.Sc. final thesis).</div></div>
       <div class="news-item"><div class="news-date">Sep 2026</div><div class="news-text">Preprint released: <strong>Targeted Behavioral Repair with Contaminated Anchors</strong>.</div></div>
       <div class="news-item"><div class="news-date">Jul 2026</div><div class="news-text">Two preprints released: <strong>StrikeForce</strong> testbed paper and <strong>No Back-Propagation Through Time via Future Action Prediction</strong>.</div></div>
       <div class="news-item"><div class="news-date">Jun 2026</div><div class="news-text">Started research internship at <strong>IPM</strong>, Tehran.</div></div>
@@ -178,6 +179,7 @@
     </div>
 
     <div class="news" data-lang-content="fa" dir="rtl" lang="fa">
+      <div class="news-item"><div class="news-date">اکتبر ۲۰۲۶</div><div class="news-text">پیش‌چاپ منتشر شد: <strong>TINAS: Transformer Interaction among N Agents with Shared Parameters</strong> (پایان‌نامه‌ی کارشناسی).</div></div>
       <div class="news-item"><div class="news-date">سپتامبر ۲۰۲۶</div><div class="news-text">پیش‌چاپ منتشر شد: <strong>Targeted Behavioral Repair with Contaminated Anchors</strong>.</div></div>
       <div class="news-item"><div class="news-date">جولای ۲۰۲۶</div><div class="news-text">دو پیش‌چاپ منتشر شد: مقاله‌ی <strong>StrikeForce</strong> و <strong>No Back-Propagation Through Time via Future Action Prediction</strong>.</div></div>
       <div class="news-item"><div class="news-date">ژوئن ۲۰۲۶</div><div class="news-text">شروع کارآموزی پژوهشی در <strong>IPM</strong>، تهران.</div></div>
@@ -280,6 +282,28 @@
         <div class="pub-abstract"><span class="lead">Abstract.</span> We study the problem of correcting a specific, identified behavioral failure in a trained model without retraining from scratch and without full access to the original training distribution. Given a competent base model θ₀ and a small corrective dataset D<sub>fix</sub> exhibiting the failure, the standard remedy for avoiding collateral damage elsewhere is to regularize the update toward θ₀ using an anchor set D<sub>anc</sub> sampled from the original distribution. We highlight and formalize a complication that this standard recipe does not address: the anchor set is not guaranteed to be failure-free. When the failure region has nonzero mass under the original distribution, D<sub>anc</sub> may itself contain instances of the very behavior being corrected, so a preservation term applied indiscriminately can directly oppose the corrective signal. We combine parameter-space preservation (EWC) with output-space preservation (KD) into a single objective, characterize the repair–preservation trade-off this creates as a function of failure prevalence ρ and dataset sizes, and analyze the resulting multi-step dynamics locally.</div>
       </article>
 
+      <article class="pub">
+        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters</div>
+        <div class="pub-head">
+          <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
+          <div class="pub-links">
+            <a class="cv-btn" href="TINAS.pdf" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"/>
+                <path d="M7 11l5 5 5-5"/>
+                <path d="M5 21h14"/>
+              </svg>
+              <span data-lang-content="en">Download PDF</span>
+              <span data-lang-content="fa">دانلود PDF</span>
+            </a>
+            <a href="https://doi.org/10.13140/RG.2.2.24504.71689" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="pub-venue">B.Sc. Final Thesis / Preprint, October 2026.</div>
+        <div class="pub-abstract"><span class="lead">Abstract.</span> We study learning inter-agent communication in multi-agent reinforcement learning with parameter sharing. TINAS lets each agent emit a message to every other agent at each timestep, with messages trained by <em>future-gradient injection</em>: the sender's message loss at time <em>t</em> is built from the receiver's loss at <em>t+1</em>, differentiated with respect to the sender's positional encoding. Because the token construction is linear in both the raw message and the positional encoding, this gradient equals the true message-side gradient, so no re-attachment step is needed. The framework proves a gradient-equivalence lemma, bounds the straight-through-estimator bias, and establishes an <em>O</em>(1/√<em>K</em>) convergence rate. A comparison with DIAL/BPTT shows that TINAS computes exactly the detached-BPTT gradient and reduces per-step graph memory by Ω(<em>L</em>), where <em>L</em> is the transformer depth. A two-pass backward algorithm achieves this at <em>O</em>(<em>T</em>) cost with no buffer replay. Implementation on a frozen behavioral-cloning backbone for the StrikeForce testbed.</div>
+      </article>
+
     </div>
 
     <div class="pubs" data-lang-content="fa" dir="rtl" lang="fa">
@@ -371,10 +395,32 @@
         <div class="pub-abstract"><span class="lead">چکیده.</span> ما مسئله‌ی تصحیح یک خطای رفتاری مشخص و شناسایی‌شده در یک مدل آموزش‌دیده را بدون آموزش از صفر و بدون دسترسی کامل به توزیع اصلی آموزش مطالعه می‌کنیم. با داشتن یک مدل پایه‌ی توانمند θ₀ و یک دیتاست تصحیح کوچک D<sub>fix</sub> که خطا را نشان می‌دهد، درمان استاندارد برای جلوگیری از آسیب جانبی در جاهای دیگر، منظم‌سازی به‌روزرسانی به سمت θ₀ با استفاده از یک مجموعه‌ی anchor نمونه‌گیری‌شده از توزیع اصلی است. ما یک پیچیدگی را که این دستور استاندارد به آن رسیدگی نمی‌کند برجسته و صورت‌بندی می‌کنیم: مجموعه‌ی anchor تضمین‌شده عاری از خطا نیست.</div>
       </article>
 
+      <article class="pub">
+        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters</div>
+        <div class="pub-head">
+          <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
+          <div class="pub-links">
+            <a class="cv-btn" href="TINAS.pdf" download>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 3v12"/>
+                <path d="M7 11l5 5 5-5"/>
+                <path d="M5 21h14"/>
+              </svg>
+              <span data-lang-content="en">Download PDF</span>
+              <span data-lang-content="fa">دانلود PDF</span>
+            </a>
+            <a href="https://doi.org/10.13140/RG.2.2.24504.71689" target="_blank" rel="noopener">DOI</a>
+            <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+        <div class="pub-venue">پایان‌نامه‌ی کارشناسی / پیش‌چاپ، اکتبر ۲۰۲۶.</div>
+        <div class="pub-abstract"><span class="lead">چکیده.</span> ما مسئله‌ی یادگیری ارتباط بین‌عواملی در یادگیری تقویتی چندعامله با اشتراک پارامتر را مطالعه می‌کنیم. TINAS به هر عامل اجازه می‌دهد در هر گام زمانی به سایر عوامل پیام ارسال کند، و پیام‌ها با <em>تزریق گرادیان آینده</em> آموزش می‌بینند: تابع افت پیام فرستنده در زمان <em>t</em> از تابع افت گیرنده در زمان <em>t+1</em> ساخته می‌شود که نسبت به encoding موقعیتی فرستنده مشتق‌گیری می‌شود. چون ساخت توکن نسبت به هر دو ورودی (پیام خام و encoding موقعیتی) خطی است، این گرادیان با گرادیان واقعی سمت پیام برابر است، پس نیازی به مرحله‌ی re-attachment نیست. چارچوب یک لم هم‌ارزی گرادیان را اثبات می‌کند، بایاس straight-through estimator را کران می‌زند، و نرخ همگرایی <em>O</em>(1/√<em>K</em>) را برقرار می‌کند. مقایسه با DIAL/BPTT نشان می‌دهد که TINAS دقیقاً گرادیان detached-BPTT را محاسبه می‌کند و حافظه‌ی گراف در هر گام را به اندازه‌ی Ω(<em>L</em>) کاهش می‌دهد، که <em>L</em> عمق transformer است. یک الگوریتم two-pass backward این را با هزینه‌ی <em>O</em>(<em>T</em>) و بدون buffer replay محقق می‌کند.</div>
+      </article>
+
     </div>
   </section>
 
-  <!-- ============ EDUCATION ============ -->
+    <!-- ============ EDUCATION ============ -->
   <section class="s" id="education">
     <h2 data-lang-content="en">Education</h2>
     <h2 data-lang-content="fa">تحصیلات</h2>
@@ -386,7 +432,7 @@
       </div>
       <div class="entry-sub">Iran University of Science and Technology, Tehran, Iran</div>
       <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
-        <strong>GPA:</strong> 93 / 100. <br>
+        <strong>GPA:</strong> 93.15 / 100. <br>
         <strong>Relevant coursework (grades ≥ 95):</strong><br>
         <em>Mathematics &amp; Theory:</em>
         Mathematical Analysis <span class="courses grade">(100)</span>,
@@ -401,7 +447,8 @@
         <em>CS &amp; Research:</em>
         Data Structures <span class="courses grade">(100)</span>,
         Design and Analysis of Algorithms <span class="courses grade">(100)</span>,
-        Research Methodology and Report Writing <span class="courses grade">(100; practical work included)</span>.
+        Research Methodology and Report Writing <span class="courses grade">(100; practical work included)</span>,
+        Internship <span class="courses grade">(100; research internship at IPM)</span>.
       </p>
     </div>
 
@@ -412,7 +459,7 @@
       </div>
       <div class="entry-sub">دانشگاه علم و صنعت ایران، تهران، ایران</div>
       <p class="body" style="font-size:0.94rem; margin-top:0.5rem">
-        <strong>معدل:</strong> ۹۳ از ۱۰۰. <br>
+        <strong>معدل:</strong> ۹۳.۱۵ از ۱۰۰. <br>
         <strong>دروس مرتبط (نمرات ۹۵+):</strong><br>
         <em>ریاضی و نظریه:</em>
         آنالیز ریاضی <span class="courses grade">(۱۰۰)</span>،
@@ -427,7 +474,8 @@
         <em>علوم کامپیوتر و پژوهش:</em>
         ساختمان داده <span class="courses grade">(۱۰۰)</span>،
         طراحی و تحلیل الگوریتم‌ها <span class="courses grade">(۱۰۰)</span>،
-        روش تحقیق و گزارش‌نویسی <span class="courses grade">(۱۰۰؛ شامل بخش عملی)</span>.
+        روش تحقیق و گزارش‌نویسی <span class="courses grade">(۱۰۰؛ شامل بخش عملی)</span>،
+        کارآموزی <span class="courses grade">(۱۰۰؛ کارآموزی پژوهشی در IPM)</span>.
       </p>
     </div>
   </section>
@@ -501,7 +549,7 @@
       <dt>Persian</dt>
       <dd>Native</dd>
       <dt>English</dt>
-      <dd>Fluent — IELTS Academic, Overall Band 7.0</dd>
+      <dd>Fluent<!-- — IELTS Academic, Overall Band 7.0 --></dd>
     </dl>
 
     <dl class="dl" data-lang-content="fa" dir="rtl" lang="fa">
@@ -516,7 +564,7 @@
       <dt>فارسی</dt>
       <dd>زبان مادری</dd>
       <dt>انگلیسی</dt>
-      <dd>مسلط — آیلتس آکادمیک، نمره‌ی کل ۷.۰</dd>
+      <dd>مسلط<!-- — آیلتس آکادمیک، نمره‌ی کل ۷.۰ --></dd>
     </dl>
   </section>
 
