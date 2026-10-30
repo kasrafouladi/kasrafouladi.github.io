@@ -32,6 +32,20 @@
     font-size:.88rem;
     padding:.5em 1.05em;
   }
+
+  /* ===== Ongoing badge ===== */
+  .pub-badge{
+    display:inline-block;
+    font-family:"IBM Plex Mono", ui-monospace, monospace;
+    font-size:.68rem; font-weight:500; letter-spacing:.05em;
+    text-transform:uppercase;
+    padding:.15em .5em;
+    border:1px solid currentColor; border-radius:4px;
+    margin-inline-start:.55rem;
+    vertical-align:middle;
+    opacity:.7;
+    white-space:nowrap;
+  }
 </style>
 </head>
 <body>
@@ -283,7 +297,7 @@
       </article>
 
       <article class="pub">
-        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters</div>
+        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters <span class="pub-badge">In Progress</span></div>
         <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> Sole author.</div>
           <div class="pub-links">
@@ -300,7 +314,7 @@
             <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
-        <div class="pub-venue">B.Sc. Final Thesis / Preprint, October 2026.</div>
+        <div class="pub-venue">B.Sc. Final Thesis / Preprint — ongoing, October 2026.</div>
         <div class="pub-abstract"><span class="lead">Abstract.</span> We study learning inter-agent communication in multi-agent reinforcement learning with parameter sharing. TINAS lets each agent emit a message to every other agent at each timestep, with messages trained by <em>future-gradient injection</em>: the sender's message loss at time <em>t</em> is built from the receiver's loss at <em>t+1</em>, differentiated with respect to the sender's positional encoding. Because the token construction is linear in both the raw message and the positional encoding, this gradient equals the true message-side gradient, so no re-attachment step is needed. The framework proves a gradient-equivalence lemma, bounds the straight-through-estimator bias, and establishes an <em>O</em>(1/√<em>K</em>) convergence rate. A comparison with DIAL/BPTT shows that TINAS computes exactly the detached-BPTT gradient and reduces per-step graph memory by Ω(<em>L</em>), where <em>L</em> is the transformer depth. A two-pass backward algorithm achieves this at <em>O</em>(<em>T</em>) cost with no buffer replay. Implementation on a frozen behavioral-cloning backbone for the StrikeForce testbed.</div>
       </article>
 
@@ -396,7 +410,7 @@
       </article>
 
       <article class="pub">
-        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters</div>
+        <div class="pub-title">TINAS: Transformer Interaction among N Agents with Shared Parameters <span class="pub-badge">In Progress</span></div>
         <div class="pub-head">
           <div class="pub-authors"><em>K. Fouladi.</em> نویسنده‌ی تنها.</div>
           <div class="pub-links">
@@ -413,7 +427,7 @@
             <a href="https://github.com/kasrafouladi/StrikeForce-No-BPTT-via-FAP" target="_blank" rel="noopener">GitHub</a>
           </div>
         </div>
-        <div class="pub-venue">پایان‌نامه‌ی کارشناسی / پیش‌چاپ، اکتبر ۲۰۲۶.</div>
+        <div class="pub-venue">پایان‌نامه‌ی کارشناسی / پیش‌چاپ — در جریان، اکتبر ۲۰۲۶.</div>
         <div class="pub-abstract"><span class="lead">چکیده.</span> ما مسئله‌ی یادگیری ارتباط بین‌عواملی در یادگیری تقویتی چندعامله با اشتراک پارامتر را مطالعه می‌کنیم. TINAS به هر عامل اجازه می‌دهد در هر گام زمانی به سایر عوامل پیام ارسال کند، و پیام‌ها با <em>تزریق گرادیان آینده</em> آموزش می‌بینند: تابع افت پیام فرستنده در زمان <em>t</em> از تابع افت گیرنده در زمان <em>t+1</em> ساخته می‌شود که نسبت به encoding موقعیتی فرستنده مشتق‌گیری می‌شود. چون ساخت توکن نسبت به هر دو ورودی (پیام خام و encoding موقعیتی) خطی است، این گرادیان با گرادیان واقعی سمت پیام برابر است، پس نیازی به مرحله‌ی re-attachment نیست. چارچوب یک لم هم‌ارزی گرادیان را اثبات می‌کند، بایاس straight-through estimator را کران می‌زند، و نرخ همگرایی <em>O</em>(1/√<em>K</em>) را برقرار می‌کند. مقایسه با DIAL/BPTT نشان می‌دهد که TINAS دقیقاً گرادیان detached-BPTT را محاسبه می‌کند و حافظه‌ی گراف در هر گام را به اندازه‌ی Ω(<em>L</em>) کاهش می‌دهد، که <em>L</em> عمق transformer است. یک الگوریتم two-pass backward این را با هزینه‌ی <em>O</em>(<em>T</em>) و بدون buffer replay محقق می‌کند.</div>
       </article>
 
